@@ -111,6 +111,22 @@ Get a free API key at: [console.groq.com/keys](https://console.groq.com/keys)
 
 ---
 
+## Design Decisions
+
+**Groq (`llama-3.1-8b-instant`) as the LLM provider** — free tier with fast inference, sufficient for structured Hebrew text extraction without hitting rate limits on a prototype.
+
+**Streamlit for the UI** — enables rapid prototyping of data pipelines with minimal frontend code, keeping the focus on the AI logic.
+
+**Local JSON files as the CRM** — no database setup required for a prototype; records are human-readable, easy to inspect during a demo, and trivial to replace with a real DB later.
+
+**Modular structure (`scraper` / `ai_processor` / `crm`)** — each layer has a single responsibility and can be swapped or extended independently without touching the others.
+
+**Strict prompt templates with separate system and user prompts** — reduces LLM hallucination and ensures a consistent, predictable output format across different businesses.
+
+**Built-in demo mode** — allows a full end-to-end demonstration without an API key or live internet access.
+
+---
+
 ## Demo Mode
 
 The app ships with a **built-in demo mode** — no API key required.  
